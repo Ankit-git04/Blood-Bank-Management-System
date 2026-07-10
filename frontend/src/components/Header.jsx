@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const WEBSITE_NAME = import.meta.env.VITE_WEBSITE_NAME;
 
+
 export default function Header({ currentUser }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
