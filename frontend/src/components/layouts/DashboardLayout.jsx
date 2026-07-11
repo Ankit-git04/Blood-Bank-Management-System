@@ -84,7 +84,10 @@ const DashboardLayout = ({ userRole = "donor" }) => {
       shortTitle: "Donor",
       icon: User,
       items: [
-        { path: "/donor", label: "Dashboard", icon: BarChart3, badge: null },
+        { path: "/donor", 
+          label: "Dashboard", 
+          icon: BarChart3, 
+          badge: null },
         {
           path: "/donor/profile",
           label: "My Profile",
@@ -194,7 +197,7 @@ const DashboardLayout = ({ userRole = "donor" }) => {
         navigate("/login");
         return;
       }
-
+     console.log("Token From DL",token);
       // Simple implementation of retries for robustness
       const maxRetries = 3;
       let attempt = 0;
@@ -202,9 +205,9 @@ const DashboardLayout = ({ userRole = "donor" }) => {
       while (attempt < maxRetries) {
         try {
 
-          const apiUrl = `${import.meta.env.VITE_API_URL || ""}/api/auth/profile`;
+        const apiUrl = `${import.meta.env.VITE_API_URL || ""}/api/auth/profile`;
           
-          const res = await fetch("/api/auth/profile", {
+          const res = await fetch(apiUrl, {
             headers: { Authorization: `Bearer ${token}` },
           });
 
